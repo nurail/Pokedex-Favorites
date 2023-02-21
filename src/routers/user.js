@@ -16,10 +16,8 @@ router.post("/users", async (req, res) => {
     console.log("user", user);
     const userEmail = await User.find({ email: req.body.email }); //find query to find if email already exists
     console.log("userEmail", userEmail[0]);
-    console.log("req.body.email", req.body.email);
     const userUsername = await User.find({ username: req.body.username }); //find query to find if username already exists
     console.log("userUsername", userUsername[0]);
-    console.log("req.body.username", req.body.username);
 
     //checking if username or email already exists
     if (userEmail[0]) {

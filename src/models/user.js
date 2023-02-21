@@ -8,7 +8,6 @@ const userSchema = new mongoose.Schema(
       type: String,
       required: true,
       unique: true,
-      sparse: true,
     },
     firstName: {
       type: String,
@@ -26,7 +25,6 @@ const userSchema = new mongoose.Schema(
       type: String,
       required: true,
       unique: true,
-      sparse: true,
       validator(value) {
         if (!validator.isEmail(value)) {
           throw new Error("Not a valid email");

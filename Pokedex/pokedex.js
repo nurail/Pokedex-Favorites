@@ -17,11 +17,6 @@ window.onload = async () => {
     alert("Your login session time has run out");
   }
 
-  function eraseCookie(name) {
-    document.cookie =
-      name + "=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;";
-  }
-
   const myHeaders = new Headers({
     Authorization: `Bearer ${getCookie("access_token")}`,
   });

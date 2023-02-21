@@ -1097,8 +1097,12 @@ let myJson = (async function main() {
 
       logoutBtn.addEventListener("click", function (e) {
         eraseCookie("access_token");
-        localStorage.clear();
       });
+
+      function eraseCookie(name) {
+        document.cookie =
+          name + "=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;";
+      }
     })
 
     //end of Pokemon JSON fetch
