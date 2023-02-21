@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Set Favorites</title>
+    <link
+      rel="icon"
+      href="https://assets.pokemon.com/static2/_ui/img/chrome/loaders/pokeball_gray.png"
+    />
+    <link rel="stylesheet" href="/Pokedex/style.css" />
+    <link rel="stylesheet" href="/styles/styles.min.css" />
+  </head>
+  <body
+    background="https://assets.pokemon.com/static2/_ui/img/chrome/container_bg.png"
+    onload="checkCookie()"
+  >
+    <div>
+      <form action="/Pokedex/index.html">
+        <button id="pokedex-content">Display Pokedex</button>
+      </form>
+      <form action="/views/main.html">
+        <button id="logout-button">Logout</button>
+      </form>
+    </div>
+    <form action="/views/addfavorite.html">
+      <button id="fav-pokemon-list-btn">Edit Your Favorite Pokemon</button>
+    </form>
+    <div id="container-favorite-pokemon"></div>
+    <script defer>
+      function checkCookie() {
+        // console.log(document.cookie);
+        if (!document.cookie) {
+          window.location.assign("http://127.0.0.1:5500/views/main.html");
+          alert("Your login session time has run out");
+        }
+      }
+    </script>
+    <script type="module" src="/src/favorite.js"></script>
+  </body>
+</html>

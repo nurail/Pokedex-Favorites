@@ -1,0 +1,16 @@
+1. The home page should have first 16 pokemon displayed - Completion 22nd Dec
+2. Create a search tab which searches through all pokemon using name and Number. Completion 26th Dec
+    1. When you enter the name in the search tab, you need to dynamically change the value of the top 16 pokemon.
+3. Suprise Me - button which on clicked, should display random 16 pokemon. - Completion - 27th Dec
+4. Sort functionality - Completion - 30th December
+    1. Lowest Number(first)
+    2. Highest Number (first)
+    3. Alphabetical Order (A-Z)
+    4. ALphabetical Order (Z-A)
+5. Create a filter beside search tab to provide all the different types of filter items - Jan 4th
+    1. types
+    2. Weakness
+    3. abilities
+    4. Height less than
+    5. weight less than
+    

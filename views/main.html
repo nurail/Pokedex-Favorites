@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pokedex Login</title>
+    <link
+      rel="icon"
+      href="https://assets.pokemon.com/static2/_ui/img/chrome/loaders/pokeball_gray.png"
+    />
+    <link rel="stylesheet" href="../styles/styles.min.css" />
+  </head>
+  <body onload="clearCookie()">
+    <div class="centered-form">
+      <div class="centered-form__box">
+        <h1>Pokedex Login</h1>
+        <h5 id="error-message"></h5>
+        <form id="login-submit">
+          <label>Email ID</label>
+          <input
+            id="login-email"
+            type="text"
+            name="email"
+            placeholder="Email ID"
+            required
+          />
+          <label>Password</label>
+          <input
+            id="login-password"
+            type="password"
+            name="password"
+            placeholder="Password"
+            required
+          />
+          <button>Login</button>
+        </form>
+        <form id="register-form" action="/views/register.html">
+          <button id="register">Register</button>
+        </form>
+      </div>
+    </div>
+    <script>
+      function clearCookie() {
+        document.cookie =
+          "access_token" + "=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;";
+      }
+    </script>
+    <script src="../src/login.js"></script>
+  </body>
+</html>

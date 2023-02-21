@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Favorite Pokemon</title>
+    <link rel="stylesheet" href="/styles/styles.min.css" />
+    <link rel="stylesheet" href="/Pokedex/style.css" />
+    <link
+      rel="icon"
+      href="https://assets.pokemon.com/static2/_ui/img/chrome/loaders/pokeball_gray.png"
+    />
+  </head>
+<body background="https://assets.pokemon.com/static2/_ui/img/chrome/container_bg.png" onload="checkCookie()">
+    <div>
+      <form action="/Pokedex/index.html">
+        <button id="pokedex-content">Display Pokedex</button>
+      </form>
+      <form action="/views/displayfavorite.html">
+        <button id="set-favorites">Display Favorites</button>
+      </form>
+      <form action="/views/main.html">
+        <div>
+          <button id="logout-button">Logout</button>
+        </div>
+      </form>
+    </div>
+    <section class="advanced-search-toggle">
+<input type="text" id="searchBox" placeholder="Name or Number"></input>
+    <button id="search">&#128269</button>
+    <button id="reset">RESET</button>
+    <button class="advancedSearchToggle"></button>
+    <div id="advancedSearchNavigationBar" class="advancedSearchNavigationBar--active"> 
+      <div class="content-block-heading">
+        <h2 class="section-title no-padding">Types & Weakness</h2>
+        <div class="filter-definitions">
+        <span><strong>T</strong> =  Type</span>
+        <span><strong>W</strong> =  Weakness</span>
+      </div>
+    </div>
+    <div class="content-block-types_weakness">
+      <ul class="pokedex-filter-TW-list">
+        <li><span class="bug">Bug</span>
+        <input type="checkbox"  value="bug" class="filter filter-type toggle type"><span>T</span></input>
+        <input type="checkbox"  value="bug" class="filter filter-weakness toggle weakness"><span>W</span></input>
+      </li>
+      <li><span class="dragon">Dragon</span>
+        <input type="checkbox"   value="dragon" class="filter filter-type toggle type"><span>T</span></input>
+        <span> <input type="checkbox"  value="dragon" class="filter filter-weakness toggle weakness"/>W</span>
+      </li>
+      <li><span class="fairy">Fairy</span>
+        <input type="checkbox"  value="fairy" class="filter filter-type toggle type"><span>T</span></input>
+         <input type="checkbox" value="fairy" class="filter filter-weakness toggle weakness"/><span>W</span>
+      </li>
+      <li><span class="fire">Fire</span>
+        <input type="checkbox"   value="fire" class="filter filter-type toggle type"><span>T</span></input>
+        <span> <input type="checkbox" value="fire" class="filter filter-weakness toggle weakness"/>W</span>
+      </li>
+      <li><span class="ghost">Ghost</span>
+        <input type="checkbox"   value="ghost" class="filter filter-type toggle type"><span>T</span></input>
+        <span> <input type="checkbox" value="ghost" class="filter filter-weakness toggle weakness"/>W</span>
+      </li>
+      <li><span class="ground">Ground</span>
+        <input type="checkbox"  value="ground" class="filter filter-type toggle type"><span>T</span></input>
+        <span> <input type="checkbox" value="ground" class="filter filter-weakness toggle weakness"/>W</span>
+      </li>
+      <li><span class="normal">Normal</span>
+        <input type="checkbox"  value="normal" class="filter filter-type toggle type"><span>T</span></input>
+        <span> <input type="checkbox" value="normal" class="filter filter-weakness toggle weakness"/>W</span>
+      </li>
+      <li><span class="psychic">Psychic</span>
+        <input type="checkbox"  value="psychic" class="filter filter-type toggle type"><span>T</span></input>
+        <span> <input type="checkbox" value="psychic" class="filter filter-weakness toggle weakness"/>W</span>
+      </li>
+        <li><span class="steel">Steel</span>
+        <input type="checkbox"  value="steel" class="filter filter-type toggle type"><span>T</span></input>
+        <span> <input type="checkbox" value="steel" class="filter filter-weakness toggle weakness"/>W</span>
+      </li>
+        <li><span class="dark">Dark</span>
+        <input type="checkbox"  value="dark" class="filter filter-type toggle type"><span>T</span></input>
+        <span> <input type="checkbox" value="dark" class="filter filter-weakness toggle weakness"/>W</span>
+      </li>
+        <li><span class="electric">Electric</span>
+        <input type="checkbox"   value="electric" class="filter filter-type toggle type"><span>T</span></input>
+        <span> <input type="checkbox" value="electric" class="filter filter-weakness toggle weakness"/>W</span>
+      </li>
+      <li><span class="fighting">Fighting</span>
+        <input type="checkbox"   value="fighting" class="filter filter-type toggle type"><span>T</span></input>
+        <span> <input type="checkbox" value="fighting" class="filter filter-weakness toggle weakness"/>W</span>
+      </li>
+      <li><span class="flying">Flying</span>
+        <input type="checkbox"   value="flying" class="filter filter-type toggle type"><span>T</span></input>
+        <span> <input type="checkbox" value="flying" class="filter filter-weakness toggle weakness"/>W</span>
+      </li>
+      <li><span class="grass">Grass</span>
+        <input type="checkbox"  value="grass" class="filter filter-type toggle type"><span>T</span></input>
+        <span> <input type="checkbox" value="grass" class="filter filter-weakness toggle weakness"/>W</span>
+      </li>
+      <li><span class="ice">Ice</span>
+        <input type="checkbox"  value="ice" class="filter filter-type toggle type"><span>T</span></input>
+        <span> <input type="checkbox" value="ice" class="filter filter-weakness toggle weakness"/>W</span>
+      </li>
+      <li><span class="poison">Poison</span>
+        <input type="checkbox" value="poison" class="filter filter-type toggle type"><span>T</span></input>
+        <span> <input type="checkbox" value="poison" class="filter filter-weakness toggle weakness"/>W</span>
+      </li>
+      <li><span class="rock">Rock</span>
+        <input type="checkbox" value="rock" class="filter filter-type toggle type"><span>T</span></input>
+        <span> <input type="checkbox" value="rock" class="filter filter-weakness toggle weakness"/>W</span>
+      </li>
+      <li><span class="water">Water</span>
+        <input type="checkbox" value="water" class="filter filter-type toggle type"><span>T</span></input>
+        <span> <input type="checkbox" value="water" class="filter filter-weakness toggle weakness"/>W</span>
+      </li>
+      </ul>
+    </div>
+    <div class="content-block-ability-height-weight">
+      <div class="dropdown dropdown-abilities"> <strong>Ability</strong> 
+         <select id="abilities" data-type="abilities" data-height="300">
+                                <option value="All" class="selected">All</option>
+                                    <option value="Adaptability">Adaptability</option>
+                                    <option value="Aerilate">Aerilate</option>
+                                    <option value="Aftermath">Aftermath</option>
+                                    <option value="Air Lock">Air Lock</option>
+                                    <option value="Anger Point">Anger Point</option>
+                                    <option value="Anticipation">Anticipation</option>
+                                    <option value="Arena Trap">Arena Trap</option>
+                                    <option value="As One">As One</option>
+                                    <option value="Aura Break">Aura Break</option>
+                                    <option value="Bad Dreams">Bad Dreams</option>
+                                    <option value="Ball Fetch">Ball Fetch</option>
+                                    <option value="Battery">Battery</option>
+                                    <option value="Battle Armor">Battle Armor</option>
+                                    <option value="Battle Bond">Battle Bond</option>
+                                    <option value="Beast Boost">Beast Boost</option>
+                                    <option value="Berserk">Berserk</option>
+                                    <option value="Big Pecks">Big Pecks</option>
+                                    <option value="Blaze">Blaze</option>
+                                    <option value="Bulletproof">Bulletproof</option>
+                                    <option value="Cheek Pouch">Cheek Pouch</option>
+                                    <option value="Chilling Neigh">Chilling Neigh</option>
+                                    <option value="Chlorophyll">Chlorophyll</option>
+                                    <option value="Clear Body">Clear Body</option>
+                                    <option value="Cloud Nine">Cloud Nine</option>
+                                    <option value="Color Change">Color Change</option>
+                                    <option value="Comatose">Comatose</option>
+                                    <option value="Competitive">Competitive</option>
+                                    <option value="Compound Eyes">Compound Eyes</option>
+                                    <option value="Contrary">Contrary</option>
+                                    <option value="Corrosion">Corrosion</option>
+                                    <option value="Cotton Down">Cotton Down</option>
+                                    <option value="Curious Medicine">Curious Medicine</option>
+                                    <option value="Cursed Body">Cursed Body</option>
+                                    <option value="Cute Charm">Cute Charm</option>
+                                    <option value="Damp">Damp</option>
+                                    <option value="Dancer">Dancer</option>
+                                    <option value="Dark Aura">Dark Aura</option>
+                                    <option value="Dauntless Shield">Dauntless Shield</option>
+                                    <option value="Dazzling">Dazzling</option>
+                                    <option value="Defeatist">Defeatist</option>
+                                    <option value="Defiant">Defiant</option>
+                                    <option value="Delta Stream">Delta Stream</option>
+                                    <option value="Desolate Land">Desolate Land</option>
+                                    <option value="Disguise">Disguise</option>
+                                    <option value="Download">Download</option>
+                                    <option value="Dragon’s Maw">Dragon’s Maw</option>
+                                    <option value="Drizzle">Drizzle</option>
+                                    <option value="Drought">Drought</option>
+                                    <option value="Dry Skin">Dry Skin</option>
+                                    <option value="Early Bird">Early Bird</option>
+                                    <option value="Effect Spore">Effect Spore</option>
+                                    <option value="Electric Surge">Electric Surge</option>
+                                    <option value="Emergency Exit">Emergency Exit</option>
+                                    <option value="Fairy Aura">Fairy Aura</option>
+                                    <option value="Filter">Filter</option>
+                                    <option value="Flame Body">Flame Body</option>
+                                    <option value="Flash Fire">Flash Fire</option>
+                                    <option value="Flower Gift">Flower Gift</option>
+                                    <option value="Flower Veil">Flower Veil</option>
+                                    <option value="Fluffy">Fluffy</option>
+                                    <option value="Forecast">Forecast</option>
+                                    <option value="Forewarn">Forewarn</option>
+                                    <option value="Frisk">Frisk</option>
+                                    <option value="Full Metal Body">Full Metal Body</option>
+                                    <option value="Fur Coat">Fur Coat</option>
+                                    <option value="Gluttony">Gluttony</option>
+                                    <option value="Gorilla Tactics">Gorilla Tactics</option>
+                                    <option value="Grassy Surge">Grassy Surge</option>
+                                    <option value="Grim Neigh">Grim Neigh</option>
+                                    <option value="Gulp Missile">Gulp Missile</option>
+                                    <option value="Guts">Guts</option>
+                                    <option value="Healer">Healer</option>
+                                    <option value="Heatproof">Heatproof</option>
+                                    <option value="Heavy Metal">Heavy Metal</option>
+                                    <option value="Honey Gather">Honey Gather</option>
+                                    <option value="Huge Power">Huge Power</option>
+                                    <option value="Hunger Switch">Hunger Switch</option>
+                                    <option value="Hustle">Hustle</option>
+                                    <option value="Hydration">Hydration</option>
+                                    <option value="Hyper Cutter">Hyper Cutter</option>
+                                    <option value="Ice Body">Ice Body</option>
+                                    <option value="Ice Face">Ice Face</option>
+                                    <option value="Illuminate">Illuminate</option>
+                                    <option value="Illusion">Illusion</option>
+                                    <option value="Immunity">Immunity</option>
+                                    <option value="Infiltrator">Infiltrator</option>
+                                    <option value="Innards Out">Innards Out</option>
+                                    <option value="Inner Focus">Inner Focus</option>
+                                    <option value="Insomnia">Insomnia</option>
+                                    <option value="Intimidate">Intimidate</option>
+                                    <option value="Intrepid Sword">Intrepid Sword</option>
+                                    <option value="Iron Barbs">Iron Barbs</option>
+                                    <option value="Iron Fist">Iron Fist</option>
+                                    <option value="Justified">Justified</option>
+                                    <option value="Keen Eye">Keen Eye</option>
+                                    <option value="Klutz">Klutz</option>
+                                    <option value="Leaf Guard">Leaf Guard</option>
+                                    <option value="Levitate">Levitate</option>
+                                    <option value="Light Metal">Light Metal</option>
+                                    <option value="Lightning Rod">Lightning Rod</option>
+                                    <option value="Limber">Limber</option>
+                                    <option value="Liquid Ooze">Liquid Ooze</option>
+                                    <option value="Magic Bounce">Magic Bounce</option>
+                                    <option value="Magic Guard">Magic Guard</option>
+                                    <option value="Magician">Magician</option>
+                                    <option value="Magma Armor">Magma Armor</option>
+                                    <option value="Magnet Pull">Magnet Pull</option>
+                                    <option value="Marvel Scale">Marvel Scale</option>
+                                    <option value="Mega Launcher">Mega Launcher</option>
+                                    <option value="Merciless">Merciless</option>
+                                    <option value="Mimicry">Mimicry</option>
+                                    <option value="Minus">Minus</option>
+                                    <option value="Misty Surge">Misty Surge</option>
+                                    <option value="Mold Breaker">Mold Breaker</option>
+                                    <option value="Motor Drive">Motor Drive</option>
+                                    <option value="Moxie">Moxie</option>
+                                    <option value="Multitype">Multitype</option>
+                                    <option value="Mummy">Mummy</option>
+                                    <option value="Natural Cure">Natural Cure</option>
+                                    <option value="Neuroforce">Neuroforce</option>
+                                    <option value="Neutralizing Gas">Neutralizing Gas</option>
+                                    <option value="No Guard">No Guard</option>
+                                    <option value="Normalize">Normalize</option>
+                                    <option value="Oblivious">Oblivious</option>
+                                    <option value="Overcoat">Overcoat</option>
+                                    <option value="Overgrow">Overgrow</option>
+                                    <option value="Own Tempo">Own Tempo</option>
+                                    <option value="Parental Bond">Parental Bond</option>
+                                    <option value="Pastel Veil">Pastel Veil</option>
+                                    <option value="Pickup">Pickup</option>
+                                    <option value="Pixilate">Pixilate</option>
+                                    <option value="Plus">Plus</option>
+                                    <option value="Poison Heal">Poison Heal</option>
+                                    <option value="Poison Point">Poison Point</option>
+                                    <option value="Poison Touch">Poison Touch</option>
+                                    <option value="Power Construct">Power Construct</option>
+                                    <option value="Power Spot">Power Spot</option>
+                                    <option value="Prankster">Prankster</option>
+                                    <option value="Pressure">Pressure</option>
+                                    <option value="Primordial Sea">Primordial Sea</option>
+                                    <option value="Prism Armor">Prism Armor</option>
+                                    <option value="Psychic Surge">Psychic Surge</option>
+                                    <option value="Punk Rock">Punk Rock</option>
+                                    <option value="Pure Power">Pure Power</option>
+                                    <option value="Queenly Majesty">Queenly Majesty</option>
+                                    <option value="Quick Draw">Quick Draw</option>
+                                    <option value="Quick Feet">Quick Feet</option>
+                                    <option value="RKS System">RKS System</option>
+                                    <option value="Rain Dish">Rain Dish</option>
+                                    <option value="Rattled">Rattled</option>
+                                    <option value="Receiver">Receiver</option>
+                                    <option value="Reckless">Reckless</option>
+                                    <option value="Refrigerate">Refrigerate</option>
+                                    <option value="Regenerator">Regenerator</option>
+                                    <option value="Ripen">Ripen</option>
+                                    <option value="Rivalry">Rivalry</option>
+                                    <option value="Rock Head">Rock Head</option>
+                                    <option value="Rough Skin">Rough Skin</option>
+                                    <option value="Run Away">Run Away</option>
+                                    <option value="Sand Force">Sand Force</option>
+                                    <option value="Sand Rush">Sand Rush</option>
+                                    <option value="Sand Spit">Sand Spit</option>
+                                    <option value="Sand Stream">Sand Stream</option>
+                                    <option value="Sand Veil">Sand Veil</option>
+                                    <option value="Sap Sipper">Sap Sipper</option>
+                                    <option value="Schooling">Schooling</option>
+                                    <option value="Scrappy">Scrappy</option>
+                                    <option value="Screen Cleaner">Screen Cleaner</option>
+                                    <option value="Serene Grace">Serene Grace</option>
+                                    <option value="Shadow Shield">Shadow Shield</option>
+                                    <option value="Shadow Tag">Shadow Tag</option>
+                                    <option value="Shed Skin">Shed Skin</option>
+                                    <option value="Sheer Force">Sheer Force</option>
+                                    <option value="Shell Armor">Shell Armor</option>
+                                    <option value="Shield Dust">Shield Dust</option>
+                                    <option value="Shields Down">Shields Down</option>
+                                    <option value="Simple">Simple</option>
+                                    <option value="Skill Link">Skill Link</option>
+                                    <option value="Slow Start">Slow Start</option>
+                                    <option value="Slush Rush">Slush Rush</option>
+                                    <option value="Sniper">Sniper</option>
+                                    <option value="Snow Cloak">Snow Cloak</option>
+                                    <option value="Snow Warning">Snow Warning</option>
+                                    <option value="Solar Power">Solar Power</option>
+                                    <option value="Solid Rock">Solid Rock</option>
+                                    <option value="Soul-Heart">Soul-Heart</option>
+                                    <option value="Soundproof">Soundproof</option>
+                                    <option value="Speed Boost">Speed Boost</option>
+                                    <option value="Stakeout">Stakeout</option>
+                                    <option value="Stall">Stall</option>
+                                    <option value="Stamina">Stamina</option>
+                                    <option value="Stance Change">Stance Change</option>
+                                    <option value="Static">Static</option>
+                                    <option value="Steadfast">Steadfast</option>
+                                    <option value="Steam Engine">Steam Engine</option>
+                                    <option value="Steelworker">Steelworker</option>
+                                    <option value="Stench">Stench</option>
+                                    <option value="Sticky Hold">Sticky Hold</option>
+                                    <option value="Storm Drain">Storm Drain</option>
+                                    <option value="Strong Jaw">Strong Jaw</option>
+                                    <option value="Sturdy">Sturdy</option>
+                                    <option value="Suction Cups">Suction Cups</option>
+                                    <option value="Super Luck">Super Luck</option>
+                                    <option value="Surge Surfer">Surge Surfer</option>
+                                    <option value="Swarm">Swarm</option>
+                                    <option value="Sweet Veil">Sweet Veil</option>
+                                    <option value="Swift Swim">Swift Swim</option>
+                                    <option value="Synchronize">Synchronize</option>
+                                    <option value="Tangled Feet">Tangled Feet</option>
+                                    <option value="Tangling Hair">Tangling Hair</option>
+                                    <option value="Technician">Technician</option>
+                                    <option value="Telepathy">Telepathy</option>
+                                    <option value="Teravolt">Teravolt</option>
+                                    <option value="Thick Fat">Thick Fat</option>
+                                    <option value="Tinted Lens">Tinted Lens</option>
+                                    <option value="Torrent">Torrent</option>
+                                    <option value="Tough Claws">Tough Claws</option>
+                                    <option value="Trace">Trace</option>
+                                    <option value="Transistor">Transistor</option>
+                                    <option value="Triage">Triage</option>
+                                    <option value="Truant">Truant</option>
+                                    <option value="Turboblaze">Turboblaze</option>
+                                    <option value="Unaware">Unaware</option>
+                                    <option value="Unburden">Unburden</option>
+                                    <option value="Unnerve">Unnerve</option>
+                                    <option value="Unseen Fist">Unseen Fist</option>
+                                    <option value="Victory Star">Victory Star</option>
+                                    <option value="Vital Spirit">Vital Spirit</option>
+                                    <option value="Volt Absorb">Volt Absorb</option>
+                                    <option value="Wandering Spirit">Wandering Spirit</option>
+                                    <option value="Water Absorb">Water Absorb</option>
+                                    <option value="Water Bubble">Water Bubble</option>
+                                    <option value="Water Compaction">Water Compaction</option>
+                                    <option value="Water Veil">Water Veil</option>
+                                    <option value="Weak Armor">Weak Armor</option>
+                                    <option value="White Smoke">White Smoke</option>
+                                    <option value="Wimp Out">Wimp Out</option>
+                                    <option value="Wonder Guard">Wonder Guard</option>
+                                    <option value="Wonder Skin">Wonder Skin</option>
+                            </select>
+  </div>
+  <div class="content-block-height">
+    <h3 class="section-title pokedex-filter-title">Height</h3>
+    <ul class="pokedex-filter-height">
+        <button class="pokedex-filter-height-small" data-value="small" data-type="height">SMALL(<50cm)</button>
+        <button class="pokedex-filter-height-medium" data-value="medium" data-type="height">MEDIUM</button>
+        <button class="pokedex-filter-height-tall" data-value="tall" data-type="height">TALL(>100cm)</button>
+      </ul>
+      
+    </div>
+    <div class="content-block-weight">
+      <h3 class="section-title pokedex-filter-title">Weight</h3>
+      <ul class="pokedex-filter-weight">
+      <button class="pokedex-filter-weight-light" data-value="light" data-type="weight">LIGHT(<50lbs)</button>
+      <button class="pokedex-filter-weight-medium" data-value="medium" data-type="weight">MEDIUM</button>
+      <button class="pokedex-filter-weight-heavy" data-value="heavy" data-type="weight">HEAVY(>100lbs)</button>
+    </ul>
+
+  </div>
+</div>
+<button id="searchAdvanced" >&#128269 SEARCH</button>
+<button id="resetFilters">RESET</button>
+</div>
+    </section>
+    <button id="randomPokemon">🔄 Surprise Me!</button>
+    <div class="dropdown">Sort By
+    <button id="dropbtnFilter"><div class="dropdown-arrow"></div></button>
+    <div id="myDropDown" class="dropdown-content">
+      <li id="lowestToHighest" value="1" selected="selected">Lowest Number (First)</li>
+      <li id="highestToLowest" value="2">Highest Number (First)</li>
+      <li id="a-to-z" value="3">A-Z</li>
+      <li id="z-to-a" value="4">Z-A</li>
+    </div> 
+  </div>
+
+  <input type='text' id="new-group" placeholder="A name for your new team"></input>
+
+  <div id="container"></div>
+
+  <div id="loadMorePokemonContainer">
+  <button id="loadMorePokemon">Load More Pokémon</button>
+    </div>
+    <script defer>
+      function checkCookie(){
+        // console.log(document.cookie)
+        if(!document.cookie){
+          window.location.assign("http://127.0.0.1:5500/views/main.html")
+          alert("Your login session time has run out")
+        }
+      }
+    </script>
+
+
+    <script type="module" src="/src/addfavorites.js"></script>
+  </body>
+</html>
