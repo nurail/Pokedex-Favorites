@@ -26,7 +26,7 @@
   "version": "1.0.0",
   "login": "mongodb.js",
   "scripts": {
-    "dev": "env-cmd -f ./config/dev.env nodemon src/index.js",
+    "dev": "env-cmd -f ./config/dev.env nodemon app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
